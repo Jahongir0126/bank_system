@@ -1,13 +1,13 @@
 <?php
 
-namespace common\modules\user;
+namespace backend\modules\auth;
 
 use yii\base\Module as BaseModule;
 
 class Module extends BaseModule
 {
-    public $controllerNamespace = 'common\modules\user\controllers';
-    public $defaultRoute = 'user';
+    public $controllerNamespace = 'backend\modules\auth\controllers';
+    public $defaultRoute = 'auth';
 
     public function init()
     {
@@ -15,7 +15,7 @@ class Module extends BaseModule
         
         // Инициализация модуля
         $this->setAliases([
-            '@user' => __DIR__,
+            '@auth' => __DIR__,
         ]);
     }
 } 
