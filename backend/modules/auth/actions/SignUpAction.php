@@ -25,7 +25,7 @@ class SignUpAction extends Action
             $model->username='';
             $model->email='';
 
-//            return $this->controller->redirect(['auth/login']);
+            return $this->controller->redirect(['auth/login']);
 
         }
 
