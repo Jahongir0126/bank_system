@@ -11,22 +11,29 @@ class Profile extends ActiveRecord
     const TYPE_CLIENT = 1;
     const TYPE_EMPLOYEE = 2;
 
-    /**
-     * {@inheritdoc}
-     */
+    public function behaviors()
+    {
+        return [
+            [
+                'class' => \yii\behaviors\TimestampBehavior::class,
+                'createdAtAttribute' => 'created_at',
+                'updatedAtAttribute' => 'updated_at',
+                'value' => time(),
+            ],
+        ];
+    }
     public static function tableName()
     {
         return '{{%profile}}';
     }
 
-    /**
-     * {@inheritdoc}
-     */
+
     public function rules()
     {
         return [
             [['user_id', 'type'], 'required'],
             [['user_id'], 'integer'],
+            [['user_id'], 'unique', 'message' => 'Профиль для данного пользователя уже существует'],
             [['type'], 'integer'],
             [['type'], 'in', 'range' => [self::TYPE_CLIENT, self::TYPE_EMPLOYEE]],
             [['first_name', 'last_name', 'middle_name'], 'string', 'max' => 255],
@@ -40,9 +47,7 @@ class Profile extends ActiveRecord
         ];
     }
 
-    /**
-     * {@inheritdoc}
-     */
+
     public function attributeLabels()
     {
         return [
@@ -64,20 +69,14 @@ class Profile extends ActiveRecord
         ];
     }
 
-    /**
-     * Gets query for [[User]].
-     *
-     * @return \yii\db\ActiveQuery
-     */
+
     public function getUser()
     {
         return $this->hasOne(User::class, ['id' => 'user_id']);
     }
 
-    /**
-     * Получить полное имя
-     * @return string
-     */
+
+
     public function getFullName()
     {
         return trim($this->last_name . ' ' . $this->first_name . ' ' . $this->middle_name);

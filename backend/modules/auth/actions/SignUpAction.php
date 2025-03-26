@@ -18,16 +18,19 @@ class SignUpAction extends Action
 
             if ($model->validate() && $model->save()) {
                 Yii::$app->session->setFlash('success', 'Success registrated');
+                return $this->controller->redirect(['auth/login']);
+                $model->password = '';
+                $model->username='';
+                $model->email='';
+
             } else {
                 Yii::$app->session->setFlash('error', 'Register error');
             }
-            $model->password = '';
-            $model->username='';
-            $model->email='';
 
-            return $this->controller->redirect(['auth/login']);
+
 
         }
+
 
         return $this->controller->render('/signup', [
             'model' => $model,

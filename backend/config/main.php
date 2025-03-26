@@ -61,6 +61,11 @@ return [
                 'auth/login' => 'auth/auth/login',
                 'auth/signup' => 'auth/auth/signup',
                 'auth/logout' => 'auth/auth/logout',
+
+                'profile' => 'profile/profile/profile',
+                'profile/create' => 'profile/profile/create',
+                'profile/update' => 'profile/profile/update',
+
             ],
         ],
 
