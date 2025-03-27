@@ -1,0 +1,155 @@
+/* Основные стили админ-панели */
+.admin-layout {
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+/* Боковая панель */
+.admin-sidebar {
+    margin-bottom: 20px;
+}
+
+.admin-sidebar .nav-pills > li > a {
+    border-radius: 4px;
+    padding: 12px 15px;
+    margin-bottom: 5px;
+    transition: all 0.3s ease;
+    color: #555;
+    border-left: 3px solid transparent;
+}
+
+.admin-sidebar .nav-pills > li.active > a,
+.admin-sidebar .nav-pills > li.active > a:hover,
+.admin-sidebar .nav-pills > li.active > a:focus {
+    background-color: #f8f9fa;
+    color: #0d6efd;
+    border-left: 3px solid #0d6efd;
+    font-weight: 600;
+}
+
+.admin-sidebar .nav-pills > li > a:hover,
+.admin-sidebar .nav-pills > li > a:focus {
+    background-color: #f1f3f5;
+    border-left: 3px solid #dee2e6;
+}
+
+.admin-sidebar .nav-pills > li > a i {
+    margin-right: 10px;
+    width: 20px;
+    text-align: center;
+}
+
+/* Панели */
+.panel {
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0,0,0,.1);
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+}
+
+.panel-heading {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    padding: 15px 20px;
+    background: linear-gradient(to right, #f8f9fa, #e9ecef);
+    border-bottom: 1px solid #ddd;
+}
+
+.panel-title {
+    font-weight: 600;
+    font-size: 18px;
+    color: #212529;
+    margin: 0;
+}
+
+.panel-body {
+    padding: 20px;
+}
+
+/* Панели с информацией на дашборде */
+.panel-info {
+    border-color: #bee5eb;
+}
+
+.panel-info .panel-heading {
+    background: linear-gradient(to right, #d1ecf1, #c3e6cb);
+    color: #0c5460;
+    border-color: #bee5eb;
+}
+
+/* Таблицы */
+.table-responsive {
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(0, 0, 0, 0.02);
+}
+
+.table-hover tbody tr:hover {
+    background-color: rgba(0, 0, 0, 0.04);
+}
+
+/* Дашборд */
+.admin-index {
+    padding-bottom: 20px;
+}
+
+.admin-index p {
+    color: #6c757d;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+/* Статистические панели на дашборде */
+.stat-panel {
+    background-color: #fff;
+    border-radius: 6px;
+    box-shadow: 0 2px 6px rgba(0,0,0,.08);
+    padding: 20px;
+    margin-bottom: 20px;
+    border-left: 4px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.stat-panel:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0,0,0,.12);
+}
+
+.stat-panel.users {
+    border-left-color: #007bff;
+}
+
+.stat-panel.profiles {
+    border-left-color: #28a745;
+}
+
+.stat-icon {
+    float: right;
+    font-size: 40px;
+    opacity: 0.3;
+    color: #212529;
+}
+
+.stat-number {
+    font-size: 28px;
+    font-weight: 600;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.stat-label {
+    color: #6c757d;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+/* Кнопки действий */
+.btn-action {
+    margin-right: 5px;
+    padding: 4px 8px;
+    font-size: 14px;
+}

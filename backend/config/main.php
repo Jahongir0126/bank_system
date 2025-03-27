@@ -27,8 +27,16 @@ return [
         'client' => [
             'class' => 'backend\modules\client\Module',
         ],
+        'admin' => [
+            'class' => 'backend\modules\admin\Module',
+        ],
+
     ],
     'components' => [
+        'authManager' => [
+            'class' => 'yii\rbac\DbManager',
+        ],
+
         'request' => [
             'csrfParam' => '_csrf-backend',
         ],
@@ -65,6 +73,16 @@ return [
                 'profile' => 'profile/profile/profile',
                 'profile/create' => 'profile/profile/create',
                 'profile/update' => 'profile/profile/update',
+
+                '/admin' => 'admin/admin/index',
+
+                'admin/users' => 'admin/admin/users',
+                'admin/update-user/<id:\d+>' => 'admin/admin/update-user',
+                'admin/delete-user/<id:\d+>' => 'admin/admin/delete-user',
+
+                'admin/profiles' => 'admin/admin/profiles',
+                'admin/update-profile/<id:\d+>' => 'admin/admin/update-profile',
+                'admin/delete-profile/<id:\d+>' => 'admin/admin/delete-profile',
 
             ],
         ],
