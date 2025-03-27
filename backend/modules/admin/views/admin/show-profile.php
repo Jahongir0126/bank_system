@@ -12,7 +12,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h1><?= Html::encode($this->title) ?></h1>
         <div>
-            <?= Html::a('Update', ['update'], ['class' => 'btn btn-primary']) ?>
+            <?= Html::a('Update', ['/admin/update-profile', 'id' => $profile->id], ['class' => 'btn btn-primary']) ?>
         </div>
     </div>
 
@@ -101,7 +101,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <div class="col-12">
                 <div class="card mb-4">
                     <div class="card-header">
-                        <h3 class="card-title">Системная информация</h3>
+                        <h3 class="card-title">System info</h3>
                     </div>
                     <div class="card-body">
                         <table class="table table-striped">

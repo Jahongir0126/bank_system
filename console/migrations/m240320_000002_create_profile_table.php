@@ -14,8 +14,8 @@ class m240320_000002_create_profile_table extends Migration
     {
         $this->createTable('{{%profile}}', [
             'id' => $this->primaryKey(),
-            'user_id' => $this->integer()->notNull(),
-            'type' => $this->integer()->notNull(),
+            'user_id' => $this->integer()->null(),
+            'type' => $this->integer()->null(),
             'first_name' => $this->string(255),
             'last_name' => $this->string(255),
             'middle_name' => $this->string(255),
@@ -26,6 +26,9 @@ class m240320_000002_create_profile_table extends Migration
             'passport_series' => $this->string(50),
             'inn' => $this->string(12),
             'snils' => $this->string(11),
+            'is_deleted' => $this->boolean()->defaultValue(false),
+            'created_by'=>$this->integer()->null(),
+            'updated_by'=>$this->integer()->null(),
             'created_at' => $this->integer()->notNull(),
             'updated_at' => $this->integer()->notNull(),
         ]);
@@ -33,7 +36,8 @@ class m240320_000002_create_profile_table extends Migration
         $this->createIndex(
             'idx-profile-user_id',
             '{{%profile}}',
-            'user_id'
+            'user_id',
+            true
         );
 
         $this->addForeignKey(
@@ -42,6 +46,7 @@ class m240320_000002_create_profile_table extends Migration
             'user_id',
             '{{%user}}',
             'id',
+            'SET NULL',
             'CASCADE'
         );
     }

@@ -6,6 +6,7 @@ use backend\modules\admin\actions\DeleteProfileAction;
 use backend\modules\admin\actions\DeleteUserAction;
 use backend\modules\admin\actions\GetProfilesAction;
 use backend\modules\admin\actions\GetUsersAction;
+use backend\modules\admin\actions\ShowProfileAction;
 use backend\modules\admin\actions\UpdateProfileAction;
 use backend\modules\admin\actions\UpdateUserAction;
 use yii\filters\AccessControl;
@@ -39,10 +40,10 @@ class AdminController extends Controller
         return [
 
             'users'=>GetUsersAction::class,
-            'update-user'=>UpdateUserAction::class,
             'delete-user'=>DeleteUserAction::class,
 
             'profiles'=>GetProfilesAction::class,
+            'show-profile'=>ShowProfileAction::class,
             'update-profile'=>UpdateProfileAction::class,
             'delete-profile'=>DeleteProfileAction::class,
 

@@ -14,6 +14,8 @@ $this->registerCss('
     }
 ');
 
+
+
 ?>
 <h1><?= Html::encode($this->title) ?></h1>
 <div class="profile-create">
@@ -30,10 +32,14 @@ $this->registerCss('
                     <?= $form->field($profile, 'last_name',['options' => ['class' => 'form-group field-spacing']])->textInput(['maxlength' => true]) ?>
                     <?= $form->field($profile, 'middle_name',['options' => ['class' => 'form-group field-spacing']])->textInput(['maxlength' => true]) ?>
                     <?= $form->field($profile, 'type',['options' => ['class' => 'form-group field-spacing']])->dropDownList([
-                        1 => 'Клиент',
-                        2 => 'Сотрудник',
-                    ], ['prompt' => 'Выберите тип']) ?>
-                    <?= $form->field($profile, 'phone',['options' => ['class' => 'form-group field-spacing']])->textInput(['maxlength' => true, 'placeholder' => '+7 (999) 999-99-99']) ?>
+                        1 => 'Client',
+                        2 => 'Employee',
+                        3 => 'Vip Client',
+                        4 => 'Manager',
+                    ], ['prompt' => 'Select profile type']) ?>
+
+
+                    <?= $form->field($profile, 'phone',['options' => ['class' => 'form-group field-spacing']])->textInput(['maxlength' => true, 'placeholder' => '+998 (99) 999-99-99']) ?>
                     <?= $form->field($profile, 'address',['options' => ['class' => 'form-group field-spacing']])->textarea(['rows' => 3, 'maxlength' => 1000]) ?>
                     <?= $form->field($profile, 'birth_date',['options' => ['class' => 'form-group field-spacing']])->widget(DatePicker::class, [
                         'language' => 'ru',

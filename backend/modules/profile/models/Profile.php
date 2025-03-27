@@ -10,6 +10,8 @@ class Profile extends ActiveRecord
 {
     const TYPE_CLIENT = 1;
     const TYPE_EMPLOYEE = 2;
+    const TYPE_VIPCLIENT = 3;
+    const TYPE_MANAGER = 4;
 
     public function behaviors()
     {
@@ -31,11 +33,10 @@ class Profile extends ActiveRecord
     public function rules()
     {
         return [
-            [['user_id', 'type'], 'required'],
             [['user_id'], 'integer'],
             [['user_id'], 'unique', 'message' => 'Профиль для данного пользователя уже существует'],
             [['type'], 'integer'],
-            [['type'], 'in', 'range' => [self::TYPE_CLIENT, self::TYPE_EMPLOYEE]],
+            [['type'], 'in', 'range' => [self::TYPE_CLIENT, self::TYPE_EMPLOYEE, self::TYPE_VIPCLIENT, self::TYPE_MANAGER]],
             [['first_name', 'last_name', 'middle_name'], 'string', 'max' => 255],
             [['phone'], 'string', 'max' => 20],
             [['address'], 'string', 'max' => 1000],
@@ -52,20 +53,20 @@ class Profile extends ActiveRecord
     {
         return [
             'id' => 'ID',
-            'user_id' => 'Пользователь',
-            'type' => 'Тип профиля',
-            'first_name' => 'Имя',
-            'last_name' => 'Фамилия',
-            'middle_name' => 'Отчество',
-            'phone' => 'Телефон',
-            'address' => 'Адрес',
-            'birth_date' => 'Дата рождения',
-            'passport_number' => 'Номер паспорта',
-            'passport_series' => 'Серия паспорта',
-            'inn' => 'ИНН',
-            'snils' => 'СНИЛС',
-            'created_at' => 'Создан',
-            'updated_at' => 'Обновлен',
+            'user_id' => 'User',
+            'type' => 'Profile Type',
+            'first_name' => 'First Name',
+            'last_name' => 'Last Name',
+            'middle_name' => 'Middle Name',
+            'phone' => 'Phone',
+            'address' => 'Address',
+            'birth_date' => 'Birth Date',
+            'passport_number' => 'Passport Number',
+            'passport_series' => 'Passport Series',
+            'inn' => 'INN',
+            'snils' => 'SNILS',
+            'created_at' => 'Created At',
+            'updated_at' => 'Updated At',
         ];
     }
 

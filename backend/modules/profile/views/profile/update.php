@@ -33,7 +33,7 @@ $this->params['breadcrumbs'][] = 'Редактирование';
                     <?= $form->field($profile, 'last_name')->textInput(['maxlength' => true]) ?>
                     <?= $form->field($profile, 'middle_name')->textInput(['maxlength' => true]) ?>
 
-                    <?= $form->field($profile, 'phone')->textInput(['maxlength' => true, 'placeholder' => '+7 (999) 999-99-99']) ?>
+                    <?= $form->field($profile, 'phone')->textInput(['maxlength' => true, 'placeholder' => '+998 (99) 999-99-99']) ?>
                     <?= $form->field($profile, 'address')->textarea(['rows' => 3, 'maxlength' => 1000]) ?>
 
                 </div>

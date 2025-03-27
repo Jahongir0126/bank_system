@@ -77,12 +77,12 @@ return [
                 '/admin' => 'admin/admin/index',
 
                 'admin/users' => 'admin/admin/users',
-                'admin/update-user/<id:\d+>' => 'admin/admin/update-user',
-                'admin/delete-user/<id:\d+>' => 'admin/admin/delete-user',
+                'admin/delete-user' => 'admin/admin/delete-user',
 
                 'admin/profiles' => 'admin/admin/profiles',
-                'admin/update-profile/<id:\d+>' => 'admin/admin/update-profile',
-                'admin/delete-profile/<id:\d+>' => 'admin/admin/delete-profile',
+                'admin/profile' => 'admin/admin/show-profile',
+                'admin/update-profile' => 'admin/admin/update-profile',
+                'admin/delete-profile' => 'admin/admin/delete-profile',
 
             ],
         ],

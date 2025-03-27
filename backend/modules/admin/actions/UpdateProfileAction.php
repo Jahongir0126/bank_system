@@ -17,7 +17,6 @@ class UpdateProfileAction extends  Action
     }
 
     public function run($id){
-        Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
 
         $profile =$this->adminService->getProfileById($id);
 
@@ -25,10 +24,9 @@ class UpdateProfileAction extends  Action
             $data = Yii::$app->request->post();
 
             $result = $this->adminService->updateProfile($id, $data);
+            if (isset($result['errors'])) {
+                return $this->controller->redirect('profiles');
 
-            if (!isset($result['errors'])) {
-                return ['success' => true];
-            }
 
             return ['success' => false, 'errors' => $result['errors']];
         }

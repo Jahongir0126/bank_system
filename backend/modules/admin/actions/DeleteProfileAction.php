@@ -23,6 +23,9 @@ class DeleteProfileAction extends Action
         try {
             // Вызов метода для удаления профиля
             $this->adminService->deleteProfile($id);
+
+            $this->controller->redirect(['/admin/users']);
+            \Yii::$app->session->setFlash('success', 'Success deleted');
             return [
                 'success' => true,
                 'message' => 'Профиль успешно удален'

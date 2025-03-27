@@ -33,8 +33,8 @@ class ProfileController extends Controller
             'verbs' => [
                 'class' => VerbFilter::class,
                 'actions' => [
-                    'create' => ['post'],
-                    'update' => ['post', 'put'],
+                    'create' => ['post','get'],
+                    'update' => ['post', 'put', 'get'],
                 ],
             ],
         ];

@@ -22,6 +22,8 @@ class DeleteUserAction extends Action
 
         try {
             $this->adminService->deleteUserWithProfile($id);
+            $this->controller->redirect(['/admin/users']);
+            \Yii::$app->session->setFlash('success', 'Success deleted');
             return [
                 'success' => true,
                 'message' => 'Пользователь успешно удален'

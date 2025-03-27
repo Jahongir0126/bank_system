@@ -2,8 +2,16 @@
 // Путь: modules/views/profile/index.php
 
 /* @var $this yii\web\View */
+use yii\helpers\Html;
+$profileTypes = [
+    1 => 'Client',
+    2 => 'Employee',
+    3 => 'VIP Client',
+    4 => 'Manager'
+];
 
-$this->title = 'Управление профилями';
+
+$this->title = 'Profile Management';
 ?>
 
 <div class="admin-profiles">
@@ -18,14 +26,43 @@ $this->title = 'Управление профилями';
                     <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Пользователь</th>
-                        <th>Имя</th>
-                        <th>Фамилия</th>
-                        <th>Действия</th>
+                        <th>User Id</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Type</th>
+                        <th>Action</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <!-- Здесь будет список профилей -->
+                    <?php foreach ($profiles as $profile): ?>
+                    <tr>
+                        <td><?= $profile->id ?></td>
+                        <td><?= $profile->user_id?></td>
+                        <td><?= $profile->first_name  ?></td>
+                        <td><?= $profile->last_name  ?></td>
+                        <td> <?php  $typeValue = $profile->type;
+                            echo '<span>' .
+                                (isset($profileTypes[$typeValue]) ? $profileTypes[$typeValue] : 'Неизвестно') .
+                                '</span>';
+                            ?>
+                        </td>
+                        <td>
+                            <?= Html::a(
+                                'Show',
+                                ['/admin/profile', 'id' => $profile->id],
+                                ['class' => 'btn btn-primary'])  ?>
+                            <?= Html::a(
+                                'Update',
+                                ['/admin/update-profile', 'id' => $profile->id],
+                                ['class' => 'btn btn-warning'])  ?>
+                            <?= Html::a(
+                                'Delete',
+                                ['/admin/delete-profile', 'id' => $profile->id],
+                                ['class' => 'btn btn-danger'])  ?>
+                        </td>
+                    </tr>
+
+                    <?php endforeach; ?>
                     </tbody>
                 </table>
             </div>

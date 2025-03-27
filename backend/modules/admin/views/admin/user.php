@@ -35,10 +35,6 @@ $this->title = 'User Management';
                         <td><?= $user->status==10 ? 'Active ' : ($user->status == 9 ? 'Inactive' : 'Deleted') ?></td>
                         <td>
                             <?= Html::a(
-                                'Update',
-                                ['/admin/update-user', 'id' => $user->id],
-                                ['class' => 'btn btn-warning']) ?>
-                            <?= Html::a(
                                 'Delete',
                                 ['/admin/delete-user', 'id' => $user->id],
                                 ['class' => 'btn btn-danger']) ?>
